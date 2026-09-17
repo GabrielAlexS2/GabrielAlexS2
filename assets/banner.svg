@@ -1,0 +1,61 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070B14"/>
+      <stop offset="0.5" stop-color="#0B1222"/>
+      <stop offset="1" stop-color="#080A11"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="185" y1="78" x2="1005" y2="255" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00E5FF"/>
+      <stop offset="0.52" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#FF3D81"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(936 63) rotate(142.125) scale(357 182)">
+      <stop stop-color="#7C3AED" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(177 266) rotate(-25.56) scale(322 159)">
+      <stop stop-color="#00E5FF" stop-opacity="0.23"/>
+      <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-40" y="-40" width="1280" height="400" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="320" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="320" rx="28" fill="url(#glowA)"/>
+  <rect width="1200" height="320" rx="28" fill="url(#glowB)"/>
+
+  <g opacity="0.18">
+    <path d="M0 64H1200M0 128H1200M0 192H1200M0 256H1200" stroke="#8BA3C7"/>
+    <path d="M120 0V320M240 0V320M360 0V320M480 0V320M600 0V320M720 0V320M840 0V320M960 0V320M1080 0V320" stroke="#8BA3C7"/>
+  </g>
+
+  <g opacity="0.75">
+    <circle cx="52" cy="42" r="6" fill="#FF5F57"/>
+    <circle cx="73" cy="42" r="6" fill="#FEBB2E"/>
+    <circle cx="94" cy="42" r="6" fill="#28C840"/>
+    <text x="126" y="48" fill="#7F8CA5" font-family="monospace" font-size="15">gabriel@github:~/profile</text>
+  </g>
+
+  <text x="72" y="123" fill="#AAB7CC" font-family="monospace" font-size="20">&lt;developer&gt;</text>
+  <text x="72" y="183" fill="white" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="57">Gabriel Alex Marques</text>
+  <rect x="72" y="205" width="798" height="4" rx="2" fill="url(#accent)"/>
+  <text x="72" y="247" fill="#D5DDF0" font-family="monospace" font-size="22">FULL STACK • REACT • NODE.JS • POSTGRESQL</text>
+  <text x="72" y="279" fill="#8493AE" font-family="monospace" font-size="17">Fortaleza, CE • construindo produtos digitais com código e propósito.</text>
+
+  <g opacity="0.32" filter="url(#blur)">
+    <circle cx="1044" cy="172" r="75" fill="#8B5CF6"/>
+    <circle cx="978" cy="221" r="48" fill="#00E5FF"/>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M1018 94L1074 126V190L1018 222L962 190V126L1018 94Z" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M994 146L1012 128M1012 128L1030 146M1012 128V184M1042 156H1070M1056 142V170" stroke="#E6E9F2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1018" cy="158" r="72" stroke="#6E7890" stroke-opacity="0.36"/>
+    <circle cx="1018" cy="158" r="92" stroke="#6E7890" stroke-opacity="0.20"/>
+  </g>
+
+  <text x="1088" y="292" fill="#59667E" font-family="monospace" font-size="14">2026</text>
+</svg>
