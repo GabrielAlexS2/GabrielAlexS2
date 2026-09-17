@@ -14,7 +14,7 @@
   <a href="https://github.com/GabrielAlexS2?tab=repositories">
     <img src="https://img.shields.io/badge/Projetos-GitHub-181717?style=for-the-badge&logo=github" alt="Projetos no GitHub" />
   </a>
-  <a href="https://gabrielalexs2.github.io/Portfolio/">
+  <a href="https://gabrielalexs2.github.io/GabrielAlexS2/">
     <img src="https://img.shields.io/badge/Portfólio-Visitar-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfólio" />
   </a>
 </p>
@@ -157,7 +157,7 @@ Atualmente sigo evoluindo em arquitetura web, produtos SaaS e aplicações full 
   <a href="https://github.com/GabrielAlexS2">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
-  <a href="https://gabrielalexs2.github.io/Portfolio/">
+  <a href="https://gabrielalexs2.github.io/GabrielAlexS2/">
     <img src="https://img.shields.io/badge/Portfólio-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfólio" />
   </a>
 </p>
