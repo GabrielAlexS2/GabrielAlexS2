@@ -19,6 +19,12 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://gabrielalexs2.github.io/GabrielAlexS2/">
+    <img width="100%" src="./assets/dev-terminal.svg" alt="Gabriel Alex developer terminal" />
+  </a>
+</p>
+
 ---
 
 ## 👨‍💻 Sobre mim
@@ -116,6 +122,16 @@ Atualmente sigo evoluindo em arquitetura web, produtos SaaS e aplicações full 
 ---
 
 ## 📈 Atividade
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/GabrielAlexS2/GabrielAlexS2/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/GabrielAlexS2/GabrielAlexS2/output/github-contribution-grid-snake.svg" />
+    <img alt="Animação das contribuições do GitHub" src="https://raw.githubusercontent.com/GabrielAlexS2/GabrielAlexS2/output/github-contribution-grid-snake.svg" />
+  </picture>
+</div>
+
+<br/>
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=GabrielAlexS2&theme=tokyo-night&hide_border=true&area=true" alt="Contribution graph" />
