@@ -1,0 +1,59 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090D16"/>
+      <stop offset="0.55" stop-color="#0D1320"/>
+      <stop offset="1" stop-color="#0A0C13"/>
+    </linearGradient>
+    <linearGradient id="line" x1="84" y1="0" x2="1112" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00E5FF"/>
+      <stop offset="0.5" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#FF3D81"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1080 290) rotate(180) scale(420 260)">
+      <stop stop-color="#7C3AED" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="358" rx="23" stroke="#263044" stroke-opacity="0.95"/>
+  <rect width="1200" height="360" rx="24" fill="url(#glow)"/>
+
+  <rect x="0" y="0" width="1200" height="58" rx="24" fill="#0F1522"/>
+  <rect x="0" y="38" width="1200" height="20" fill="#0F1522"/>
+  <circle cx="32" cy="29" r="7" fill="#FF5F57"/>
+  <circle cx="56" cy="29" r="7" fill="#FEBC2E"/>
+  <circle cx="80" cy="29" r="7" fill="#28C840"/>
+  <text x="110" y="35" fill="#7F8CA5" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="16">gabriel@portfolio: ~/profile</text>
+  <rect x="84" y="57" width="1032" height="2" rx="1" fill="url(#line)" opacity="0.9"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="19">
+    <text x="72" y="104" fill="#7EE787">gabriel@dev</text>
+    <text x="192" y="104" fill="#8B949E">:</text>
+    <text x="204" y="104" fill="#79C0FF">~</text>
+    <text x="222" y="104" fill="#E6EDF3">$ whoami</text>
+
+    <text x="72" y="136" fill="#F0F6FC">Gabriel Alex Marques — Full Stack Developer</text>
+
+    <text x="72" y="183" fill="#7EE787">gabriel@dev</text>
+    <text x="192" y="183" fill="#8B949E">:</text>
+    <text x="204" y="183" fill="#79C0FF">~</text>
+    <text x="222" y="183" fill="#E6EDF3">$ stack --focus</text>
+
+    <text x="72" y="215" fill="#D2A8FF">React • Next.js • Node.js • Express • PostgreSQL • Docker • Prisma</text>
+
+    <text x="72" y="262" fill="#7EE787">gabriel@dev</text>
+    <text x="192" y="262" fill="#8B949E">:</text>
+    <text x="204" y="262" fill="#79C0FF">~</text>
+    <text x="222" y="262" fill="#E6EDF3">$ mission</text>
+
+    <text x="72" y="294" fill="#FFA657">Construir produtos digitais úteis, escaláveis e com experiência marcante.</text>
+
+    <text x="72" y="335" fill="#7EE787">gabriel@dev</text>
+    <text x="192" y="335" fill="#8B949E">:</text>
+    <text x="204" y="335" fill="#79C0FF">~</text>
+    <text x="222" y="335" fill="#E6EDF3">$ portfolio --open</text>
+    <rect x="430" y="319" width="10" height="20" rx="2" fill="#00E5FF"/>
+  </g>
+</svg>
