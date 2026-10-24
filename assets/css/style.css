@@ -320,7 +320,7 @@ img { max-width: 100%; display: block; }
 
 /* transitions */
 .page-transition { position:fixed; inset:0; z-index:5000; display:grid; grid-template-columns:repeat(4,1fr); pointer-events:none; }
-.transition-panel { background:#f2f2ee; transform-origin:top; }
+.transition-panel { background:#f2f2ee; transform-origin:top; transform:scaleY(0); }
 .transition-panel:nth-child(2) { background:var(--accent); }
 .transition-panel:nth-child(3) { background:#111; }
 .transition-panel:nth-child(4) { background:var(--orange); }
