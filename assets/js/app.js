@@ -66,13 +66,34 @@
   }
 
   function initPageTransitions() {
-    if (!window.gsap || reducedMotion) return;
+    if (!window.gsap) return;
     const panels = qsa('.transition-panel');
     const label = qs('.transition-label');
     if (!panels.length) return;
 
-    gsap.set(panels, {scaleY:1, transformOrigin:'top'});
-    gsap.to(panels, {scaleY:0, duration:.74, stagger:.055, ease:'power4.inOut', transformOrigin:'top', delay:.12});
+    // Garante que o label de texto comece oculto
+    if (label) gsap.set(label, { opacity: 0 });
+
+    // Animação de entrada (revelação da página):
+    // Se a home tiver o loader inicial rodando pela 1ª vez, deixamos recolhido.
+    // Nas demais páginas e navegações internas, as listras recolhem do topo revelando o conteúdo.
+    const isHomeWithActiveLoader = qs('.loader') && sessionStorage.getItem('gabriel-portfolio-loaded') !== '1';
+
+    if (!isHomeWithActiveLoader) {
+      gsap.fromTo(panels,
+        { scaleY: 1, transformOrigin: 'top' },
+        { scaleY: 0, duration: 0.62, stagger: 0.045, ease: 'power4.inOut', delay: 0.05 }
+      );
+    } else {
+      gsap.set(panels, { scaleY: 0 });
+    }
+
+    // Safety timeout: garante que após 1.2s todos os painéis fiquem 100% ocultos
+    // Isso é a garantia absoluta de que as listras JAMAIS ficarão travadas na tela do celular
+    const hideTimeout = setTimeout(() => {
+      panels.forEach(p => { p.style.transform = 'scaleY(0)'; });
+      if (label) label.style.opacity = '0';
+    }, 1200);
 
     const internalLinks = qsa('a[href]').filter(a => {
       const href = a.getAttribute('href');
@@ -84,22 +105,71 @@
       } catch { return false; }
     });
 
-    internalLinks.forEach(link => link.addEventListener('click', (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      const targetUrl = link.href;
-      if (targetUrl === window.location.href) return;
-      e.preventDefault();
-      const title = link.dataset.transitionLabel || link.textContent.trim() || 'Navegando';
-      if (label) label.textContent = title;
-      const tl = gsap.timeline({onComplete:() => window.location.href = targetUrl});
-      tl.set(panels, {scaleY:0, transformOrigin:'bottom'})
-        .to(panels, {scaleY:1, duration:.62, stagger:.045, ease:'power4.inOut'})
-        .to(label, {opacity:1, duration:.18}, '-=.28');
-    }));
+    let isTransitioning = false;
 
+    internalLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        const targetUrl = link.href;
+
+        // Compara URLs normalizadas para não disparar transição caso seja a mesma página
+        try {
+          const cur = new URL(window.location.href);
+          const tgt = new URL(targetUrl, window.location.href);
+          const cleanCur = cur.pathname.replace(/\/index\.html$/, '/');
+          const cleanTgt = tgt.pathname.replace(/\/index\.html$/, '/');
+          if (cleanCur === cleanTgt && cur.search === tgt.search) {
+            const menuToggle = qs('.menu-toggle');
+            if (document.body.classList.contains('menu-open') && menuToggle) {
+              menuToggle.click();
+            }
+            return;
+          }
+        } catch {}
+
+        if (isTransitioning) return;
+        isTransitioning = true;
+        clearTimeout(hideTimeout);
+
+        e.preventDefault();
+
+        // Se o menu mobile estiver aberto, remove a classe para não conflitar
+        document.body.classList.remove('menu-open');
+
+        const title = link.dataset.transitionLabel || link.textContent.trim().replace(/[↗→\s]+$/, '') || 'Navegando';
+        if (label) {
+          label.textContent = title;
+        }
+
+        // Animação de saída: as listras sobem da base cobrindo a tela
+        let navigated = false;
+        const navigate = () => {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = targetUrl;
+        };
+
+        const tl = gsap.timeline({ onComplete: navigate });
+        tl.set(panels, { scaleY: 0, transformOrigin: 'bottom' })
+          .to(panels, { scaleY: 1, duration: 0.52, stagger: 0.04, ease: 'power4.inOut' });
+
+        if (label) {
+          tl.to(label, { opacity: 1, duration: 0.18 }, '-=0.22');
+        }
+
+        // Fallback de segurança para celular: se a animação não completar em 850ms, navega
+        setTimeout(navigate, 850);
+      });
+    });
+
+    // Ao voltar pelo histórico do navegador no celular (bfcache)
     window.addEventListener('pageshow', () => {
-      gsap.set(label, {opacity:0});
-      gsap.to(panels, {scaleY:0, duration:.45, stagger:.035, transformOrigin:'top', ease:'power3.out'});
+      isTransitioning = false;
+      if (label) gsap.set(label, { opacity: 0 });
+      gsap.to(panels, { scaleY: 0, duration: 0.4, stagger: 0.03, transformOrigin: 'top', ease: 'power3.out' });
+      setTimeout(() => {
+        panels.forEach(p => { p.style.transform = 'scaleY(0)'; });
+      }, 500);
     });
   }
 
