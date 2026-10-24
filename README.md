@@ -53,11 +53,11 @@ Atualmente sigo evoluindo em arquitetura web, produtos SaaS e aplicações full 
 
 | Projeto | Descrição | Tecnologias |
 |---|---|---|
+| **Mercado PDV** | Landing page e ecossistema de PDV e gestão conectada com simulação de checkout interativa. | Next.js, React, Tailwind CSS, Vercel |
 | **MarketFlow / Sistema PDV** | PDV e estoque com arquitetura offline-first, fluxo de caixa, scanner e integração com PIX. | React, Node.js, Prisma, PostgreSQL, Dexie, PWA |
+| **House JS** | Plataforma oficial da comunidade dev com aprendizado colaborativo e projetos open source. | JavaScript, React, Node.js, GitHub Pages |
+| **Pirambu Innovation** | Experiência web para iniciativa de impacto social com notícias e API integrada. | HTML, CSS, JavaScript, API |
 | **BarberPro CRM** | Sistema de agendamento para barbearias com autenticação por perfis e pagamentos PIX. | Next.js, Express, MySQL, JWT, Mercado Pago |
-| **Inpacto Social** | Projeto que transforma valores financeiros em métricas sociais e usa dados públicos para contextualização. | HTML, CSS, JavaScript, API IBGE |
-| **PDF Studio** | Editor web focado em documentos em formato A4. | JavaScript, HTML, CSS |
-| **Auto-Magic** | Projeto de jogo em evolução com arquitetura orientada a sistemas e gerenciamento de fases. | JavaScript / Game Architecture |
 
 <p align="center">
   <a href="https://github.com/GabrielAlexS2?tab=repositories">
