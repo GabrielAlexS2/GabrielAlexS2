@@ -325,7 +325,7 @@ img { max-width: 100%; display: block; }
 .transition-panel:nth-child(3) { background:#111; }
 .transition-panel:nth-child(4) { background:var(--orange); }
 .transition-label { position:fixed; z-index:5001; left:50%; top:50%; transform:translate(-50%,-50%); font-family:'Space Grotesk'; font-size:clamp(28px,4vw,58px); letter-spacing:-.05em; color:#050505; pointer-events:none; opacity:0; mix-blend-mode:difference; }
-.loader { position:fixed; inset:0; z-index:6000; background:#080808; display:grid; place-items:center; }
+.loader { position:fixed; inset:0; z-index:6000; background:#080808; display:grid; place-items:center; clip-path:inset(0 0 0% 0); }
 .loader-inner { width:min(440px,82vw); }
 .loader-word { font-family:'Space Grotesk'; font-size:clamp(44px,8vw,80px); letter-spacing:-.07em; line-height:.9; }
 .loader-track { width:100%; height:1px; background:var(--line); margin-top:22px; overflow:hidden; }

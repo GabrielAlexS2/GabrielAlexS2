@@ -27,30 +27,42 @@
     const counter = qs('[data-loader-count]', loader);
     const hasSeen = sessionStorage.getItem('gabriel-portfolio-loaded') === '1';
 
-    if (hasSeen || reducedMotion || !window.gsap) {
-      loader.remove();
+    let timer, value;
+
+    // Função centralizada de dismissal — usada tanto no onComplete quanto no fallback
+    const dismiss = () => {
+      clearTimeout(safetyTimeout);
+      clearInterval(timer);
+      sessionStorage.setItem('gabriel-portfolio-loaded', '1');
+      if (loader.parentNode) loader.remove();
       document.documentElement.classList.add('is-ready');
+    };
+
+    // Segurança: se a animação GSAP falhar por qualquer motivo, fecha em 5s
+    const safetyTimeout = setTimeout(dismiss, 5000);
+
+    if (hasSeen || reducedMotion || !window.gsap) {
+      dismiss();
       return;
     }
 
-    let value = 0;
-    const timer = setInterval(() => {
+    value = 0;
+    timer = setInterval(() => {
       value = Math.min(97, value + Math.ceil(Math.random() * 11));
       if (counter) counter.textContent = String(value).padStart(2,'0');
     }, 60);
 
-    gsap.timeline({
-      onComplete: () => {
-        clearInterval(timer);
-        sessionStorage.setItem('gabriel-portfolio-loaded', '1');
-        loader.remove();
-        document.documentElement.classList.add('is-ready');
-      }
-    })
-    .to(bar, {scaleX: 1, duration: .85, ease:'power2.inOut'})
-    .call(() => { if (counter) counter.textContent = '100'; }, null, '-=.18')
-    .to('.loader-word', {y:-18, opacity:0, duration:.35, ease:'power2.in'}, '-=.1')
-    .to(loader, {clipPath:'inset(0 0 100% 0)', duration:.72, ease:'power4.inOut'});
+    // Usando fromTo() com valor inicial explícito no clipPath para garantir
+    // compatibilidade com todos os browsers (sem valor inicial, o GSAP
+    // falha silenciosamente em Firefox/Safari e o onComplete nunca dispara)
+    gsap.timeline({ onComplete: dismiss })
+      .to(bar, { scaleX: 1, duration: .85, ease: 'power2.inOut' })
+      .call(() => { if (counter) counter.textContent = '100'; }, null, '-=.18')
+      .to('.loader-word', { y: -18, opacity: 0, duration: .35, ease: 'power2.in' }, '-=.1')
+      .fromTo(loader,
+        { clipPath: 'inset(0 0 0% 0)' },
+        { clipPath: 'inset(0 0 100% 0)', duration: .72, ease: 'power4.inOut' }
+      );
   }
 
   function initPageTransitions() {
